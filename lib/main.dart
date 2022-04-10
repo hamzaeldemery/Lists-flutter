@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './query.dart';
 
 void main() {
   runApp(const MyApp());
@@ -6,40 +7,35 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var clubs = ["Barca", "Madrid", "Milan", "Juve", "PSG"];
     return MaterialApp(
       title: 'Lists Assignment 1',
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: 'Lists Assignment 1'),
+      home: MyHomePage(title: 'Lists Assignment 1',clubs: clubs),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title, required this.clubs}) : super(key: key);
   final String title;
+  final List<String> clubs;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text("Assignment 1"),
+        title: const Text("Assignment 1"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Assignment 1',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Query(clubs)
           ],
         ),
       ),
