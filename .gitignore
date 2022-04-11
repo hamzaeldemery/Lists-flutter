@@ -30,6 +30,15 @@
 .pub-cache/
 .pub/
 /build/
+/ios/
+/android/
+/test/
+/web/
+/windows/
+.metadata
+.analysis_options.yaml
+.pubspec.lock
+.pubspec.yaml
 
 # Web related
 lib/generated_plugin_registrant.dart
